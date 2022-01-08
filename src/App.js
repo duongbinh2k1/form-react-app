@@ -66,6 +66,10 @@ function App() {
     e.preventDefault();
   };
 
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
@@ -76,9 +80,9 @@ function App() {
               key={input.id}
               {...input}
               value={values[input.value]}
-              onChange={input.onChange}
+              onChange={onChange}
             />
-          )
+          );
         })}
         <button type="submit">Submit</button>
       </form>
